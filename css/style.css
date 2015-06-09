@@ -9,6 +9,19 @@ body:after {
 body:after {
   clear: both;
 }
+#comments {
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 3px #ddd;
+  box-shadow: 1px 2px 3px #ddd;
+  padding: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: 50px 0;
+}
+#comments a {
+  color: #258fb8;
+}
 html,
 body,
 div,
