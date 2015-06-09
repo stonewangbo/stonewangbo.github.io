@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>stone wangbo</title>
+  <title>包装线程池，一行代码实现异步调用 | stone wangbo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="stone wangbo">
-<meta property="og:url" content="https://stonewangbo.github.io/index.html">
+  <meta name="description" content="先看看包装以后的使用效果：
+AsynchronousCallUtil.submit(Object instance, String methName, Object... args)
+一行代码，只需要传入要调用的实例，方法名，以及调用参数，就可以实现异步调用啦
+我们先来看看大概的设计思路：内部构建并管理线程池，然后使用反射机制，通过传入实例和方法名，实现方法在线程池中的调用
+先来看看工具类的初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="包装线程池，一行代码实现异步调用">
+<meta property="og:url" content="https://stonewangbo.github.io/2015/06/09/threadpool/index.html">
 <meta property="og:site_name" content="stone wangbo">
-<meta property="og:description">
+<meta property="og:description" content="先看看包装以后的使用效果：
+AsynchronousCallUtil.submit(Object instance, String methName, Object... args)
+一行代码，只需要传入要调用的实例，方法名，以及调用参数，就可以实现异步调用啦
+我们先来看看大概的设计思路：内部构建并管理线程池，然后使用反射机制，通过传入实例和方法名，实现方法在线程池中的调用
+先来看看工具类的初始化">
+<meta property="og:updated_time" content="2015-06-09T08:50:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stone wangbo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="包装线程池，一行代码实现异步调用">
+<meta name="twitter:description" content="先看看包装以后的使用效果：
+AsynchronousCallUtil.submit(Object instance, String methName, Object... args)
+一行代码，只需要传入要调用的实例，方法名，以及调用参数，就可以实现异步调用啦
+我们先来看看大概的设计思路：内部构建并管理线程池，然后使用反射机制，通过传入实例和方法名，实现方法在线程池中的调用
+先来看看工具类的初始化">
   
     <link rel="alternative" href="/atom.xml" title="stone wangbo" type="application/atom+xml">
   
@@ -59,9 +72,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-threadpool" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-threadpool" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/09/threadpool/" class="article-date">
   <time datetime="2015-06-09T06:38:49.000Z" itemprop="datePublished">2015-06-09</time>
@@ -74,8 +85,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/09/threadpool/">包装线程池，一行代码实现异步调用</a>
+    <h1 class="article-title" itemprop="name">
+      包装线程池，一行代码实现异步调用
     </h1>
   
 
@@ -127,102 +138,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/27/first/" class="article-date">
-  <time datetime="2015-05-27T10:14:45.000Z" itemprop="datePublished">2015-05-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/27/first/">第一篇</a>
-    </h1>
+    <a href="/2015/05/27/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第一篇</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>读书笔记</p>
-<p>《大型分布式网站架构》 陈康贤</p>
-<p>cpu利用率<br>top | grep Cpu</p>
-<p>按1，列出所有cpu占用率</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://stonewangbo.github.io/2015/05/27/first/" data-id="ciaoz4vck0000z88f8ni9q5px" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/27/hello-world/" class="article-date">
-  <time datetime="2015-05-27T09:42:24.000Z" itemprop="datePublished">2015-05-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/27/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://stonewangbo.github.io/2015/05/27/hello-world/" data-id="ciaoz4ve7000az88f3i2r7ky3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           <aside id="sidebar">
